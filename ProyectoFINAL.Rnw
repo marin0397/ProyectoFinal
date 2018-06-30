@@ -52,8 +52,6 @@ colb=read.csv(filename, stringsAsFactors = FALSE)
 @
 
 \section{Exploración Univariada}\label{univariada}
-
-
 \begin{abstract}
 Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable.
 \end{abstract}
@@ -65,14 +63,10 @@ vars1 <- colb[]
 stargazer(vars1,title = "Medidas estadísticas", label = "stats",summary.stat = c("n", "median"))
 @
 
-
-
 \begin{abstract}
 Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable.
 \end{abstract}
 
-
-\centering
 <<barplots, echo=FALSE,fig=TRUE>>=
 par(mfrow=c(2,2))
 
@@ -84,14 +78,12 @@ hist(colb$Poblacion.Resto)
 
 
 @
-
-
-
+\clearpage
 \begin{abstract}
 Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable.
 \end{abstract}
 
-\centering
+
 <<barplots2, echo=FALSE,fig=TRUE>>=
 par(mfrow=c(2,2))
 colb$cabeLog=log(colb$Poblacion.Cabecera)
@@ -101,15 +93,13 @@ hist(colb$cabeLog)
 hist(colb$restoLog)
 
 @
-\section{Exploración Bivariada}\label{bivariada}
 \clearpage
-
-
+\section{Exploración Bivariada}\label{bivariada}
 \begin{abstract}
 Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable.
 \end{abstract}
 
-\centering
+
 <<corrDem, results=tex, echo=FALSE>>=
 explanans=names(colb)[c(7:8)] # usando las logs
 corrDem=cor(colb$IDH,colb[,explanans],
@@ -118,10 +108,7 @@ corrDem=cor(colb$IDH,colb[,explanans],
 stargazer(corrDem, title="Correlación de Democracia con las demás variables",label = "corrDem")
 @
 
-\begin{abstract}
-Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filoso
-\end{abstract}
-\centering
+
 <<corrTableX, results=tex, echo=FALSE>>=
 corrTableX=round(cor(colb[,explanans],
                          use = "na.or.complete"),2)
@@ -133,26 +120,16 @@ stargazer(corrTableX_copy, title="correlación entre las variables independiente
 @
 
 
-\begin{abstract}
-Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento 
-
-\end{abstract}
-\centering
 <<barplots4, echo=FALSE,fig=TRUE>>=
 par(mfrow=c(2,2))
 plot(colb[,explanans])
 @
 
-
-\centering
 <<regresiones, echo=FALSE>>=
 LinRegA = lm(IDH ~ ., data = colb[,c(1,7)])
 LinRegB = lm(IDH ~ ., data = colb[,c(1,7:8)])
 @
 
-
-
-\centering
 <<regresionesPlot,results=tex, echo=false>>=
 stargazer(LinRegA,LinRegB,
           title = "Modelos de Regresión", 
@@ -160,15 +137,11 @@ stargazer(LinRegA,LinRegB,
 @
 
 
-
+\clearpage
 \section{Exploración Espacial}\label{espacial}
-
 \begin{abstract}
-Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable.
+Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. Este es mi primer trabajo en exploracion y modelamiento de indices usando LATEX. Este trabajo lo he hecho bajo la filosofía de trabajo replicable. \cite{gower_general_1971}
 \end{abstract}
-
-
-
 <<getMap, echo=FALSE,results=hide,fig=FALSE>>=
 library(rgdal)
 folder='COL_maps'
@@ -181,7 +154,6 @@ plot(mapCol)
 
 head(mapCol@data)
 @
-
 
 <<getMap1, echo=FALSE,results=hide>>=
 head(mapCol@data)
@@ -222,9 +194,9 @@ mapCol_idh=merge(mapCol_idh,clusters, by='NAME_1',all.x=F)
 names(mapCol_idh)
 @
 
-\begin{figure}[h]
+
 \centering
-\begin{adjustbox}{width=6cm,height=4cm,clip,trim=1cm 2.5cm 0cm 2.5cm}
+
 <<getMapconglomerado, echo=FALSE,results=hide,fig=TRUE>>=
 
 library(RColorBrewer)
@@ -255,13 +227,12 @@ legend('left', legend = c("LOW","UP","MEDIUM"),
        bty = "n",
        title="conglomerado")
 @
-\end{adjustbox}
+
 \caption{Paises conglomerados segun sus indicadores sociopolíticos}\label{clustmap}
-\end{figure}
 
 
 % \bibliographystyle{abbrv}
 % \renewcommand{\refname}{Bibliografia}
-% % #\bibliography{MACQUEEN}
+% \bibliography{Colombia}
 
 \end{document}
